@@ -1,6 +1,15 @@
 import readline from 'node:readline/promises'
 import up from '../fileSystem/up.js'
 import cd from '../fileSystem/cd.js'
+import ls from '../fileSystem/ls.js'
+import cat from '../fileSystem/cat.js'
+import add from '../fileSystem/add.js'
+import rn from '../fileSystem/rn.js'
+import cp from '../fileSystem/cp.js'
+import mv from '../fileSystem/mv.js'
+import rm from '../fileSystem/rm.js'
+
+import hash from '../hash/hash.js'
 
 
 const commandHandler = async (dirState) => {
@@ -18,31 +27,43 @@ const commandHandler = async (dirState) => {
             await up(dirState);
             break;
         case 'cd':
-            cd(dirState, parts[1]);
+            await cd(dirState, parts[1]);
             break;
         case 'ls': 
-            console.log('list_of_files');
+            await ls(dirState)
             break;
         case 'cat': 
-            console.log('path_to_file');
+            await cat(dirState, parts[1]);
             break;
         case 'add': 
-            console.log('new_file_name');
+            await add(dirState, parts[1]);
             break;
         case 'rn': 
-            console.log('path_to_file new_filename');
+            await rn(dirState, parts[1], parts[2]);
             break;
         case 'cp': 
-            console.log('path_to_file path_to_new_directory');
+            await cp(dirState, parts[1], parts[2]);
             break;
         case 'mv': 
-            console.log('path_to_file path_to_new_directory');
+            await mv(dirState, parts[1], parts[2]);
             break;
         case 'rm': 
-            console.log('path_to_file');
+            await rm(dirState, parts[1]);
+            break;
+        case 'os':
+            console.log('1');
+            break;
+        case 'hash':
+            console.log('1');
+            break;
+        case 'compress':
+            console.log('1');
+            break;
+        case 'decompress':
+            console.log('1');
             break;
         default: 
-            console.log('Danger, danger... Error.');
+            console.log('Invalid input');
             break;
     };
 

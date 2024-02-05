@@ -1,5 +1,5 @@
 import process from 'process';
-import { initialDirectory } from './src/modules/initialDirectory.js';
+import initialDirectory from './src/modules/initialDirectory.js';
 import commandHandler from './src/modules/commandHandler.js'
 
 
