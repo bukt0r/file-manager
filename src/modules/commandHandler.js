@@ -8,7 +8,7 @@ import rn from '../fileSystem/rn.js'
 import cp from '../fileSystem/cp.js'
 import mv from '../fileSystem/mv.js'
 import rm from '../fileSystem/rm.js'
-
+import os from '../os/os.js'
 import hash from '../hash/hash.js'
 
 
@@ -51,7 +51,7 @@ const commandHandler = async (dirState) => {
             await rm(dirState, parts[1]);
             break;
         case 'os':
-            console.log('1');
+            await os(parts[1]);
             break;
         case 'hash':
             console.log('1');
