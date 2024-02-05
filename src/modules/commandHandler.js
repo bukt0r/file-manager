@@ -10,6 +10,8 @@ import mv from '../fileSystem/mv.js'
 import rm from '../fileSystem/rm.js'
 import os from '../os/os.js'
 import hash from '../hash/hash.js'
+import compress from '../compression and decompression/compress.js'
+import decompress from '../compression and decompression/decompress.js'
 
 
 const commandHandler = async (dirState) => {
@@ -54,13 +56,13 @@ const commandHandler = async (dirState) => {
             await os(parts[1]);
             break;
         case 'hash':
-            console.log('1');
+            await hash(dirState, parts[1]);
             break;
         case 'compress':
-            console.log('1');
+            await compress(dirState, parts[1], parts[2]);
             break;
         case 'decompress':
-            console.log('1');
+            await decompress(dirState, parts[1], parts[2]);
             break;
         default: 
             console.log('Invalid input');
